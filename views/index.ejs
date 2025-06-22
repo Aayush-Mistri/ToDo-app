@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Task Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+  <h1>Add a Task</h1>
+
+  <form action="/create" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" placeholder="Enter task title" name="title">
+
+    <label for="desc">Description:</label>
+    <textarea id="desc" placeholder="Enter task description" rows="5" name="details"></textarea>
+
+    <input type="submit" value="Crete task">
+  </form>
+
+  <% if(files.length > 0 ){ %>
+    <% files.forEach(function(val){ %>
+        <div class="task-box">
+            <h3> <%= val %></h3>
+            <a href="/files/<%= val %>"> 
+                Read more
+            </a>
+          </div>
+    <% }) %>
+  <%} else { %>
+    <h3 class="text-zinc-600">No tasks yet</h3>
+  <% } %>
+  
+
+</body>
+</html>
